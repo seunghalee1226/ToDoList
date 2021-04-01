@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components/native';
+import styled, { isStyledComponent, ThemeProvider } from 'styled-components/native';
 import { theme } from './theme';
 import { StatusBar } from 'react-native';
 import Input from './components/Input';
