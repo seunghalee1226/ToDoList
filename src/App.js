@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { isStyledComponent, ThemeProvider } from 'styled-components/native';
 import { theme } from './theme';
 import { StatusBar } from 'react-native';
@@ -20,6 +20,17 @@ const Title = styled.Text`
     `;
 
 export default function App() {
+    const [newTask, setNewTask] = useState('');
+
+    const _addTask = () => {
+        alert(`Add: ${newTask}`);
+        setNewTask('');
+    };
+
+    const _handleTextChange = text => {
+        setNewTask(text);
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <Container>
@@ -27,7 +38,11 @@ export default function App() {
                   barStyle="light-content"
                   backgroundColor={theme.background}
                 />
-                <Input placeholder="+ Add a Task" />
+                <Input
+                    placeholder="+ Add a Task"
+                    value={newTask}
+                    onChangeText={_handleTextChange}
+                    onSubmintEditing={_addTask} />
                 <Title>TODO LIST</Title>
                 <Input />
             </Container>
