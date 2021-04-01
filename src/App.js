@@ -27,6 +27,7 @@ export default function App() {
                   barStyle="light-content"
                   backgroundColor={theme.background}
                 />
+                <Input placeholder="+ Add a Task" />
                 <Title>TODO LIST</Title>
                 <Input />
             </Container>
