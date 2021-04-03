@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Dimensions, useWindowDimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 
 const StyledInput = styled.TextInput.attrs(({ theme }) => ({
@@ -8,10 +8,10 @@ const StyledInput = styled.TextInput.attrs(({ theme }) => ({
 }))`
     width: ${({ width }) => width - 40}px;
     height: 60px;
-    margin: 3px 1px;
+    margin: 3px 0;
     padding: 15px 20px;
     border-radius: 10px;
-    backround-color: ${({ theme }) => theme.itemBackground};
+    background-color: ${({ theme }) => theme.itemBackground};
     font-size: 25px;
     color: ${({ theme }) => theme.text};
 `;
@@ -28,7 +28,7 @@ const Input = ({ placeholder, value, onChangeText, onSubmitEditing }) => {
         autoCaptialize="none"
         autoCorrect={false}
         returnKeyType="done"
-        keyboardAppearance="dark"
+        // keyboardAppearance="dark"
         value={value}
         onChangeText={onChangeText}
         onSubmitEditing={onSubmitEditing}
