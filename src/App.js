@@ -35,7 +35,7 @@ export default function App() {
         '1': { id: '1', text: 'Seungha', completed: false },
         '2': { id: '2', text: 'React Native', completed: true },
         '3': { id: '3', text: 'React Native Sample', completed : false },
-        '4': { id: '4', text: 'Edit TODO Item', completed: false},
+        '4': { id: '4', text: 'Edit TODO Item', completed: false },
     });
 
     const width = Dimensions.get('window').width;
@@ -52,6 +52,12 @@ export default function App() {
     const _deleteTask = id => {
         const currentTasks = Object.assign({}, tasks);
         delete currentTasks[id];
+        setTasks(currentTasks);
+    };
+
+    const _toggleTask = id => {
+        const currentTasks = Object.assign({}, tasks);
+        currentTasks[id]['completed'] = !currentTasks[id]['completed'];
         setTasks(currentTasks);
     };
 
@@ -76,7 +82,9 @@ export default function App() {
                     {Object.values(tasks)
                         .reverse()
                         .map(item => (
-                            <Task key={item.id} item={item} deleteTask={_deleteTask} />
+                            <Task key={item.id} item={item} 
+                                deleteTask={_deleteTask}
+                                toggleTask={_toggleTask} />
                         ))}
                 </List>
             </Container>
